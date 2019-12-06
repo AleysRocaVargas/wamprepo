@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+/**INICIO DE SESION */
+Route::resource('login','UsuariosController')->except([
+    'create', 'edit', 'update', 'destroy', 'show'
+]);
+
+Route::post('login/iniciar','UsuariosController@iniciarSesion');
+
+/**ACUDIENTES */
+Route::get('acudientes','AcudientesController@index');
+Route::post('acudientes','AcudientesController@store');
+Route::post('acudientes/usuario','AcudientesController@acudientes');

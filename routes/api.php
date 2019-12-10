@@ -25,3 +25,6 @@ Route::post('login/iniciar','UsuariosController@iniciarSesion');
 Route::get('acudientes','AcudientesController@index');
 Route::post('acudientes','AcudientesController@store');
 Route::post('acudientes/usuario','AcudientesController@acudientes');
+
+/**NOTIFICACIONES */
+Route::post('notificar','NotificacionesController@notificar');

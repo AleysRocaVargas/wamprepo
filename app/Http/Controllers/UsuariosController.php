@@ -14,6 +14,8 @@ class UsuariosController extends Controller
      */
     public function index()
     {
+        echo "funcionando";
+        
         //
         return response()->json([
             "usuarios" => Usuarios::all()
